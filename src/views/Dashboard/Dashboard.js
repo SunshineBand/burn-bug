@@ -7,7 +7,7 @@ import {
   TotalUsers,
   TasksProgress,
   TotalProfit,
-  LatestOrders
+  LatestTickets
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -78,7 +78,7 @@ const Dashboard = () => {
           xl={9}
           xs={12}
         >
-          <LatestOrders />
+          <LatestTickets />
         </Grid>
       </Grid>
     </div>

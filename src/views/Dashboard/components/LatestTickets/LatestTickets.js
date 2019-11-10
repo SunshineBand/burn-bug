@@ -50,12 +50,12 @@ const statusColors = {
   refunded: 'danger'
 };
 
-const LatestOrders = props => {
+const LatestTickets = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
 
-  const [orders] = useState(mockData);
+  const [tickets] = useState(mockData);
 
   return (
     <Card
@@ -72,7 +72,7 @@ const LatestOrders = props => {
             New entry
           </Button>
         }
-        title="Latest Orders"
+        title="Latest Tickets"
       />
       <Divider />
       <CardContent className={classes.content}>
@@ -81,7 +81,6 @@ const LatestOrders = props => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Order Ref</TableCell>
                   <TableCell>Customer</TableCell>
                   <TableCell sortDirection="desc">
                     <Tooltip
@@ -100,24 +99,23 @@ const LatestOrders = props => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {orders.map(order => (
+                {tickets.map(ticket => (
                   <TableRow
                     hover
-                    key={order.id}
+                    key={ticket.id}
                   >
-                    <TableCell>{order.ref}</TableCell>
-                    <TableCell>{order.customer.name}</TableCell>
+                    <TableCell>{ticket.customer.name}</TableCell>
                     <TableCell>
-                      {moment(order.createdAt).format('DD/MM/YYYY')}
+                      {moment(ticket.createdAt).format('DD/MM/YYYY')}
                     </TableCell>
                     <TableCell>
                       <div className={classes.statusContainer}>
                         <StatusBullet
                           className={classes.status}
-                          color={statusColors[order.status]}
+                          color={statusColors[ticket.status]}
                           size="sm"
                         />
-                        {order.status}
+                        {ticket.status}
                       </div>
                     </TableCell>
                   </TableRow>
@@ -141,8 +139,8 @@ const LatestOrders = props => {
   );
 };
 
-LatestOrders.propTypes = {
+LatestTickets.propTypes = {
   className: PropTypes.string
 };
 
-export default LatestOrders;
+export default LatestTickets;
