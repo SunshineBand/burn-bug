@@ -23,6 +23,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import mockData from './data';
 import { StatusBullet } from 'components';
+import FormDialog from 'components/FormDialog';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -64,13 +65,7 @@ const LatestTickets = props => {
     >
       <CardHeader
         action={
-          <Button
-            color="primary"
-            size="small"
-            variant="outlined"
-          >
-            New entry
-          </Button>
+          <FormDialog />
         }
         title="Latest Tickets"
       />
